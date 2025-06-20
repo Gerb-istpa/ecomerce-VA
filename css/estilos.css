@@ -1,0 +1,230 @@
+/* 🎯 RESET Y BOX-SIZING GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* ✅ APLICANDO BORDER-BOX GLOBAL */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+/* 🏗️ HEADER - DISPLAY BLOCK Y BOX MODEL */
+.header {
+    background: #2c3e50;
+    color: white;
+    padding: 15px 0;
+    /* ✅ PADDING PARA ESPACIADO INTERNO */
+    border-bottom: 3px solid #3498db;
+
+    /* ✅ BORDER PARA SEPARACIÓN */
+    /* display: block; ← Por defecto en elementos de bloque */
+    .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        /* ✅ MARGIN AUTO PARA CENTRAR */
+        padding: 0 20px;
+        /* ✅ PADDING LATERAL */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            width: 75px;
+            height: 75px;
+            display: flex;
+
+            /* display: block; ← Por defecto */
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        /* 📱 NAVEGACIÓN - DISPLAY INLINE-BLOCK */
+        .nav {
+
+            /* display: block; ← Por defecto */
+            .nav-item {
+                display: inline-block;
+                /* ✅ INLINE-BLOCK PARA MENÚ HORIZONTAL */
+                padding: 10px 20px;
+                /* ✅ PADDING PARA ÁREA CLICKEABLE */
+                margin: 0 5px;
+                /* ✅ MARGIN PARA SEPARACIÓN */
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+
+                transition: background 0.3s;
+
+                &:hover {
+                    background: #866deb;
+                    /* El padding y margin hacen el hover más cómodo */
+                }
+            }
+        }
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    /* ✅ MARGIN PARA CENTRAR Y SEPARAR */
+    padding: 0 20px;
+    /* ✅ PADDING PARA ESPACIADO LATERAL */
+    background: rgb(8, 241, 67);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    /* 🛍️ ÁREA DEL PRODUCTO - FLEXBOX CON BOX MODEL */
+    .product-section {
+        padding: 30px;
+
+        /* ✅ PADDING INTERNO GENEROSO */
+        /* display: block; ← Por defecto */
+        /* 🎨 EFECTOS VISUALES QUE MUESTRAN EL BOX MODEL */
+        .box-model-demo {
+            margin: 20px 0;
+            /* ✅ MARGIN PARA DEMOSTRACIÓN */
+            padding: 20px;
+            /* ✅ PADDING VISIBLE */
+            border: 3px dashed #e74c3c;
+            /* ✅ BORDER VISIBLE PARA ENSEÑAR */
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 8px;
+
+            &::before {
+                content: "📦 Esta caja muestra el Box Model: margin + border + padding + content";
+                display: block;
+                /* ✅ DISPLAY BLOCK PARA PSEUDO-ELEMENTO */
+                font-weight: bold;
+                color: #2c3e50;
+                margin-bottom: 10px;
+                /* ✅ MARGIN EN PSEUDO-ELEMENTO */
+            }
+        }
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        /* Alternativa moderna a margin */
+        margin-bottom: 30px;
+
+        /* ✅ MARGIN PARA SEPARAR SECCIONES */
+        /* 🖼️ GALERÍA DE IMÁGENES */
+        .image-gallery {
+
+            /* display: block; ← Por defecto */
+            .main-image {
+                width: 100%;
+                /* ✅ WIDTH RESPONSIVE */
+                height: 400px;
+                background: #ecf0f1;
+                border: 2px solid #bdc3c7;
+                /* ✅ BORDER PARA DEFINIR LÍMITES */
+                border-radius: 8px;
+                margin-bottom: 15px;
+                /* ✅ MARGIN PARA SEPARAR */
+                display: flex;
+                /* ✅ DISPLAY FLEX PARA CENTRAR CONTENIDO */
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2em;
+                color: #7f8c8d;
+            }
+
+            .thumbnails {
+                display: flex;
+                gap: 10px;
+
+                .thumbnail {
+                    width: 80px;
+                    /* ✅ WIDTH FIJO */
+                    height: 80px;
+                    /* ✅ HEIGHT FIJO */
+                    background: #ecf0f1;
+                    border: 2px solid #bdc3c7;
+                    /* ✅ BORDER */
+                    border-radius: 6px;
+                    /* display: block; ← Por defecto para divs */
+                    cursor: pointer;
+                    transition: border-color 0.3s;
+
+                    &:hover {
+                        border-color: #3498db;
+                    }
+                }
+
+                .active {
+                    border-color: #e74c3c;
+                    border-width: 3px;
+                    /* ✅ CAMBIO DE BORDER-WIDTH */
+                }
+            }
+        }
+
+        /* 📝 INFO DEL PRODUCTO */
+        .product-info {
+
+            /* display: block; ← Por defecto */
+            .product-title {
+                font-size: 2.2em;
+                color: #2c3e50;
+                margin-bottom: 15px;
+                /* ✅ MARGIN PARA SEPARAR */
+                /* display: block; ← Por defecto para h1 */
+            }
+
+            .price-section {
+                margin-bottom: 25px;
+                /* ✅ MARGIN PARA SEPARAR */
+                padding: 20px;
+                /* ✅ PADDING PARA DESTACAR */
+                background: #f8f9fa;
+                border: 1px solid #dee2e6;
+                /* ✅ BORDER SUTIL */
+                border-radius: 8px;
+
+                .current-price {
+                    font-size: 2em;
+                    color: #e74c3c;
+                    font-weight: bold;
+                    /* display: block; ← Por defecto para span en este contexto */
+                }
+
+                .original-price {
+                    display: inline;
+                    /* ✅ INLINE PARA FLUIR CON TEXTO */
+                    font-size: 1.2em;
+                    color: #7f8c8d;
+                    text-decoration: line-through;
+                    margin-left: 15px;
+                    /* ✅ MARGIN PARA SEPARAR */
+                }
+
+                .discount-badge {
+                    display: inline-block;
+                    /* ✅ INLINE-BLOCK PARA CONTROL DE DIMENSIONES */
+                    background: #e74c3c;
+                    color: white;
+                    padding: 5px 12px;
+                    /* ✅ PADDING PARA ÁREA DEL BADGE */
+                    border-radius: 20px;
+                    font-size: 0.9em;
+                    font-weight: bold;
+                    margin-left: 10px;
+                    /* ✅ MARGIN PARA SEPARAR */
+                }
+            }
+        }
+    }
+}
